@@ -14,10 +14,13 @@ const client = new Client({
 
 // QR kod
 client.on('qr', qr => {
-    console.log('QR KOD:');
-    qrcode.generate(qr, { small: true });
-});
 
+    console.log(
+        'QR LINKI: https://api.qrserver.com/v1/create-qr-code/?size=300x300&data='
+        + encodeURIComponent(qr)
+    );
+
+});
 // Bot hazır
 client.on('ready', () => {
     console.log('Bot hazır ✅');
